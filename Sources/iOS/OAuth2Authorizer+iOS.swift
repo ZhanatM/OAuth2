@@ -94,7 +94,7 @@ open class OAuth2Authorizer: OAuth2AuthorizerUI {
 				if config.authorizeEmbeddedAutoDismiss {
 					oauth2.internalAfterAuthorizeOrFail = { wasFailure, error in
 						safariViewDelegate = nil
-						web.dismiss(animated: true)
+						web.dismiss(animated: false)
 					}
 				}
 			}
