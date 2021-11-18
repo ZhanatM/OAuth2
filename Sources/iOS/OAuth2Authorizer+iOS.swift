@@ -90,7 +90,8 @@ open class OAuth2Authorizer: OAuth2AuthorizerUI {
 				let web = try authorizeSafariEmbedded(from: controller, at: url)
 				if config.authorizeEmbeddedAutoDismiss {
 					oauth2.internalAfterAuthorizeOrFail = { wasFailure, error in
-						web.dismiss(animated: true)
+						self.safariViewDelegate = nil
+						web.dismiss(animated: false)
 					}
 				}
 			}
